@@ -1,7 +1,7 @@
-**Draw Plots**
+**플롯 그리기**
 ==============
 
-Select a plot
+플롯 선택
 -------------
 
 You can select a plot from the menu in *Plot* window:
@@ -18,7 +18,7 @@ You can select a plot from the menu in *Plot* window:
     
     * `seaborn: statistical data visualization <https://seaborn.pydata.org/>`_
 
-Choose the options
+옵션 선택
 ------------------
 
 You can choose the options from the option bars:
@@ -44,10 +44,10 @@ Different kinds of options:
 
 .. tip::
 
-    If the length of an option bar is too long and exceeds the display area, you can hover over the option bar and scroll up and down using a mouse or touchpad.
+    옵션 바의 길이가 너무 길어 표시 영역을 초과하는 경우, 마우스나 터치패드를 사용하여 옵션 바 위로 마우스를 가져가 스크롤할 수 있습니다.
 
 
-Save the image
+이미지 저장
 --------------
 
 You can save the image by pressing *Save* button in *Plot* window:

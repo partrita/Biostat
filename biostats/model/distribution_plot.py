@@ -5,30 +5,30 @@ from biostats.model.util import _CC, _process, _add_p
 
 def histogram(data, x, band, color=None):
     '''
-    Draw a histogram to show the distribution of a numeric variable.
+    수치형 변수의 분포를 보여주는 히스토그램을 그립니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least one numeric column. 
+        입력 데이터입니다. 하나 이상의 수치형 열을 포함해야 합니다.
     x : :py:class:`str`
-        The numeric variable to be plotted.
+        플롯할 수치형 변수입니다.
     band : :py:class:`int`
-        The number of bands in the histogram.
+        히스토그램의 막대 수입니다.
     color : :py:class:`str`
-        The categorical variable specifying groups to be plotted with different colors. Maximum 20 groups. Optional. 
+        다른 색상으로 플롯할 그룹을 지정하는 범주형 변수입니다. 최대 20개 그룹입니다. 선택 사항입니다.
 
-    Returns
+    반환값
     -------
     fig : :py:class:`matplotlib.figure.Figure`
-        The generated plot.
+        생성된 플롯입니다.
 
-    See also
+    참고 항목
     --------
-    density_plot : Show the distribution by a density curve.
-    histogram_2D : Draw a 2 dimensional histogram from 2 numeric columns.
+    density_plot : 밀도 곡선으로 분포를 보여줍니다.
+    histogram_2D : 2개의 수치형 열에서 2차원 히스토그램을 그립니다.
 
-    Examples
+    예제
     --------
     .. plot::
 
@@ -74,30 +74,30 @@ def histogram(data, x, band, color=None):
 
 def density_plot(data, x, smooth, color=None):
     '''
-    Draw a density curve to show the distribution of a numeric variable.
+    수치형 변수의 분포를 보여주는 밀도 곡선을 그립니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least one numeric column. 
+        입력 데이터입니다. 하나 이상의 수치형 열을 포함해야 합니다.
     x : :py:class:`str`
-        The numeric variable to be plotted.
-    smooth : :py:class:`float` or :py:class:`int`
-        The smoothing of the curve. Larger value with smoother curve.
+        플롯할 수치형 변수입니다.
+    smooth : :py:class:`float` 또는 :py:class:`int`
+        곡선의 평활도입니다. 값이 클수록 곡선이 더 부드러워집니다.
     color : :py:class:`str`
-        The categorical variable specifying groups to be plotted with different colors. Maximum 20 groups. Optional. 
+        다른 색상으로 플롯할 그룹을 지정하는 범주형 변수입니다. 최대 20개 그룹입니다. 선택 사항입니다.
 
-    Returns
+    반환값
     -------
     fig : :py:class:`matplotlib.figure.Figure`
-        The generated plot.
+        생성된 플롯입니다.
 
-    See also
+    참고 항목
     --------
-    histogram : Show the distribution by a histogram.
-    density_plot_2D : Draw a 2 dimensional density plot from 2 numeric columns.
+    histogram : 히스토그램으로 분포를 보여줍니다.
+    density_plot_2D : 2개의 수치형 열에서 2차원 밀도 플롯을 그립니다.
 
-    Examples
+    예제
     --------
     .. plot::
 
@@ -142,27 +142,27 @@ def density_plot(data, x, smooth, color=None):
 
 def cumulative_plot(data, x, color=None):
     '''
-    Draw a cumulative curve to show the distribution of a numeric variable.
+    수치형 변수의 분포를 보여주는 누적 곡선을 그립니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least one numeric column. 
+        입력 데이터입니다. 하나 이상의 수치형 열을 포함해야 합니다.
     x : :py:class:`str`
-        The numeric variable to be plotted.
+        플롯할 수치형 변수입니다.
     color : :py:class:`str`
-        The categorical variable specifying groups to be plotted with different colors. Maximum 20 groups. Optional. 
+        다른 색상으로 플롯할 그룹을 지정하는 범주형 변수입니다. 최대 20개 그룹입니다. 선택 사항입니다.
 
-    Returns
+    반환값
     -------
     fig : :py:class:`matplotlib.figure.Figure`
-        The generated plot.
+        생성된 플롯입니다.
 
-    See also
+    참고 항목
     --------
-    density_plot: Show the distribution by a density curve.
+    density_plot: 밀도 곡선으로 분포를 보여줍니다.
 
-    Examples
+    예제
     --------
     .. plot::
 
@@ -207,30 +207,30 @@ def cumulative_plot(data, x, color=None):
 
 def histogram_2D(data, x, y, color=None):
     '''
-    Draw a 2D histogram to show the distribution of two numeric variables.
+    두 수치형 변수의 분포를 보여주는 2D 히스토그램을 그립니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least two numeric columns. 
+        입력 데이터입니다. 두 개 이상의 수치형 열을 포함해야 합니다.
     x : :py:class:`str`
-        The numeric variable to be plotted in x-axis.
+        x축에 플롯할 수치형 변수입니다.
     y : :py:class:`str`
-        The numeric variable to be plotted in y-axis.
+        y축에 플롯할 수치형 변수입니다.
     color : :py:class:`str`
-        The categorical variable specifying groups to be plotted with different colors. Maximum 20 groups. Optional. 
+        다른 색상으로 플롯할 그룹을 지정하는 범주형 변수입니다. 최대 20개 그룹입니다. 선택 사항입니다.
 
-    Returns
+    반환값
     -------
     fig : :py:class:`matplotlib.figure.Figure`
-        The generated plot.
+        생성된 플롯입니다.
 
-    See also
+    참고 항목
     --------
-    density_plot_2D : Show the 2D distribution by density curves.
-    histogram : Draw a histogram to show the distribution of a numeric variable.
+    density_plot_2D : 밀도 곡선으로 2D 분포를 보여줍니다.
+    histogram : 수치형 변수의 분포를 보여주는 히스토그램을 그립니다.
 
-    Examples
+    예제
     --------
     .. plot::
 
@@ -277,30 +277,30 @@ def histogram_2D(data, x, y, color=None):
 
 def density_plot_2D(data, x, y, color=None):
     '''
-    Draw a 2D density plot to show the distribution of two numeric variables.
+    두 수치형 변수의 분포를 보여주는 2D 밀도 플롯을 그립니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least two numeric columns. 
+        입력 데이터입니다. 두 개 이상의 수치형 열을 포함해야 합니다.
     x : :py:class:`str`
-        The numeric variable to be plotted in x-axis.
+        x축에 플롯할 수치형 변수입니다.
     y : :py:class:`str`
-        The numeric variable to be plotted in y-axis.
+        y축에 플롯할 수치형 변수입니다.
     color : :py:class:`str`
-        The categorical variable specifying groups to be plotted with different colors. Maximum 20 groups. Optional. 
+        다른 색상으로 플롯할 그룹을 지정하는 범주형 변수입니다. 최대 20개 그룹입니다. 선택 사항입니다.
 
-    Returns
+    반환값
     -------
     fig : :py:class:`matplotlib.figure.Figure`
-        The generated plot.
+        생성된 플롯입니다.
 
-    See also
+    참고 항목
     --------
-    histogram_2D : Show the 2D distribution by a histogram.
-    density_plot : Draw a density curve to show the distribution of a numeric variable.
+    histogram_2D : 히스토그램으로 2D 분포를 보여줍니다.
+    density_plot : 수치형 변수의 분포를 보여주는 밀도 곡선을 그립니다.
 
-    Examples
+    예제
     --------
     .. plot::
 

@@ -1,5 +1,5 @@
 ---
-title: 'BIOSTATS: A User-Friendly Application for Statistical Analysis'
+title: 'BIOSTATS: 통계 분석을 위한 사용자 친화적 애플리케이션'
 tags:
   - python
   - data-science
@@ -13,20 +13,20 @@ authors:
 affiliations:
   - name: School of Medicine, National Taiwan University, Taiwan
     index: 1
-date: 7 January 2023
+date: 2023년 1월 7일
 bibliography: paper.bib
 ---
 
-# Summary
+# 요약
 
-``BIOSTATS`` is a user-friendly statistical software application with a graphical user interface (GUI) that allows researchers to easily perform a wide range of statistical tests without the need for coding. The tests offered include t-tests, chi-square tests, ANOVA, linear and logistic regression, nonparametric methods, and descriptive statistics. BIOSTATS also allows users to visualize relationships between variables through statistical graphics. It is suitable for researchers and data scientists in various fields, and is available as a Python package on PyPI with a fully-featured API for integration into other projects. It was originally designed for biostatistics but can be applied to a wide range of statistical topics.
+``BIOSTATS``는 그래픽 사용자 인터페이스(GUI)를 갖춘 사용자 친화적인 통계 소프트웨어 애플리케이션으로, 연구자들이 코딩 없이도 광범위한 통계 검정을 쉽게 수행할 수 있도록 합니다. 제공되는 검정에는 t-검정, 카이제곱 검정, ANOVA, 선형 및 로지스틱 회귀, 비모수적 방법, 기술 통계 등이 있습니다. 또한 BIOSTATS를 사용하면 통계 그래픽을 통해 변수 간의 관계를 시각화할 수 있습니다. 다양한 분야의 연구자 및 데이터 과학자에게 적합하며, PyPI에서 Python 패키지로 제공되어 다른 프로젝트에 통합할 수 있는 모든 기능을 갖춘 API를 제공합니다. 원래 생물 통계를 위해 설계되었지만 광범위한 통계 주제에 적용할 수 있습니다.
 
-# Statement of need
+# 필요성 보고
 
-Scientific research often relies on statistical analysis to draw conclusions from experimental results. However, many commonly used statistical software programs, such as R, SAS, SPSS, and STATA, require the use of software-specific commands that can be challenging for researchers with limited programming experience. Additionally, these programs often have a large number of features that may be confusing for researchers who only have basic statistical knowledge. As a result, there is a need for statistical software that is easy to use and has concise, comprehensive functionality without the need for coding.
+과학 연구는 실험 결과로부터 결론을 도출하기 위해 종종 통계 분석에 의존합니다. 그러나 R, SAS, SPSS, STATA와 같이 일반적으로 사용되는 많은 통계 소프트웨어 프로그램은 프로그래밍 경험이 제한적인 연구자에게 어려울 수 있는 소프트웨어별 명령을 사용해야 합니다. 또한 이러한 프로그램에는 기본적인 통계 지식만 가진 연구자에게 혼란을 줄 수 있는 많은 기능이 있는 경우가 많습니다. 결과적으로 코딩 없이 사용하기 쉽고 간결하며 포괄적인 기능을 갖춘 통계 소프트웨어에 대한 필요성이 있습니다.
 
-We introduce ``BIOSTATS``, a user-friendly application for statistical analysis. Its straightforward and intuitive graphical user interface allows researchers to easily perform a wide range of statistical tests with just a few clicks, eliminating the need to enter commands. These tests include t-tests, chi-square tests, ANOVA, linear and logistic regression, nonparametric methods, and descriptive statistics, among others. ``BIOSTATS`` also allows users to visualize relationships between variables by generating various statistical graphics, and allows for the import, export, and direct editing of data within the software. Designed with simplicity in mind, ``BIOSTATS`` is intuitive enough to use without the need for instructions, and is suitable for researchers and data scientists in a variety of fields. Originally developed for use in biostatistics, ``BIOSTATS`` can also be applied to a wide range of statistical topics. In addition, it is available as a Python package on PyPI, which includes a fully-featured API for easy integration into other projects.
+통계 분석을 위한 사용자 친화적인 애플리케이션인 ``BIOSTATS``를 소개합니다. 간단하고 직관적인 그래픽 사용자 인터페이스를 통해 연구자들은 명령을 입력할 필요 없이 몇 번의 클릭만으로 광범위한 통계 검정을 쉽게 수행할 수 있습니다. 이러한 검정에는 t-검정, 카이제곱 검정, ANOVA, 선형 및 로지스틱 회귀, 비모수적 방법, 기술 통계 등이 포함됩니다. ``BIOSTATS``는 또한 사용자가 다양한 통계 그래픽을 생성하여 변수 간의 관계를 시각화하고 소프트웨어 내에서 데이터를 가져오고 내보내고 직접 편집할 수 있도록 합니다. 단순성을 염두에 두고 설계된 ``BIOSTATS``는 지침 없이도 사용할 수 있을 만큼 직관적이며 다양한 분야의 연구자 및 데이터 과학자에게 적합합니다. 원래 생물 통계에 사용하기 위해 개발된 ``BIOSTATS``는 광범위한 통계 주제에도 적용할 수 있습니다. 또한 PyPI에서 Python 패키지로 제공되며 다른 프로젝트에 쉽게 통합할 수 있는 모든 기능을 갖춘 API를 포함합니다.
 
-``BIOSTATS`` is a free and open-source software that is well-documented on the official website. It is implemented in Python and utilizes a range of open-source packages, including ``pandas``, ``numpy``, ``scipy``, ``statsmodels``, ``scikit-learn``, ``matplotlib``, and ``seaborn``. The development of ``BIOSTATS`` is guided by a thorough review of statistical theories and mathematical principles from various sources, including textbooks [@mcdonald2009handbook] [@rosner2015fundamentals] and online resources [@mangiafico_2015] [@bobbitt_2022] [@ucla_2021].
+``BIOSTATS``는 공식 웹사이트에 잘 문서화되어 있는 무료 오픈 소스 소프트웨어입니다. Python으로 구현되었으며 ``pandas``, ``numpy``, ``scipy``, ``statsmodels``, ``scikit-learn``, ``matplotlib``, ``seaborn``을 포함한 다양한 오픈 소스 패키지를 활용합니다. ``BIOSTATS``의 개발은 교과서 [@mcdonald2009handbook] [@rosner2015fundamentals] 및 온라인 리소스 [@mangiafico_2015] [@bobbitt_2022] [@ucla_2021]를 포함한 다양한 출처의 통계 이론 및 수학적 원리에 대한 철저한 검토를 통해 이루어집니다.
 
-# References
+# 참고 문헌

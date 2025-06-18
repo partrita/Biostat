@@ -7,120 +7,120 @@
 [![Downloads](https://img.shields.io/github/downloads/hikarimusic/BIOSTATS/total.svg)](https://github.com/hikarimusic/BIOSTATS/releases)
 [![DOI](https://zenodo.org/badge/474227681.svg)](https://zenodo.org/doi/10.5281/zenodo.10550105)
 
-# __What is BIOSTATS__
+# __BIOSTATS란 무엇인가__
 
-* BIOSTATS is an intuitive app for statistical analysis.
-* It is free and open-source.
-* It works on _Windows_ / _Linux_.
+* BIOSTATS는 통계 분석을 위한 직관적인 앱입니다.
+* 무료이며 오픈 소스입니다.
+* _Windows_ / _Linux_에서 작동합니다.
 
-### __You can perform tests with a few clicks__
+### __몇 번의 클릭으로 검정을 수행할 수 있습니다__
 
-_t-Test_
+_t-검정_
 
 <img src="https://github.com/hikarimusic/BIOSTATS/raw/main/docs/_static/home/t_test.png" width=500>
 
-_ANOVA_
+_분산 분석(ANOVA)_
 
 <img src="https://github.com/hikarimusic/BIOSTATS/raw/main/docs/_static/home/anova.png" width=500>
 
-_Chi-Square Test_
+_카이제곱 검정_
 
 <img src="https://github.com/hikarimusic/BIOSTATS/raw/main/docs/_static/home/chi_square_test.png" width=500>
 
-_Regression_
+_회귀 분석_
 
 <img src="https://github.com/hikarimusic/BIOSTATS/raw/main/docs/_static/home/regression.png" width=500>
 
-### __You can visualize plots with a few clicks__
+### __몇 번의 클릭으로 플롯을 시각화할 수 있습니다__
 
-_Histogram_
+_히스토그램_
 
 <img src="https://github.com/hikarimusic/BIOSTATS/raw/main/docs/_static/home/histogram.png" width=500>
 
-_Box Plot_
+_상자 그림_
 
 <img src="https://github.com/hikarimusic/BIOSTATS/raw/main/docs/_static/home/box_plot.png" width=500>
 
-_Regression Plot_
+_회귀 플롯_
 
 <img src="https://github.com/hikarimusic/BIOSTATS/raw/main/docs/_static/home/regression_plot.png" width=500>
 
-_Multiple Plot_
+_다중 플롯_
 
 <img src="https://github.com/hikarimusic/BIOSTATS/raw/main/docs/_static/home/multiple_plot.png" width=500>
 
-### __BIOSTATS includes these tests:__
+### __BIOSTATS에는 다음 검정들이 포함되어 있습니다:__
 
-| Basic | t-Test | ANOVA | Exact Test | Chi-Square Test |
+| 기본 | t-검정 | ANOVA | 정확 검정 | 카이제곱 검정 |
 |---|---|---|---|---|
-| Numeric | One-Sample t-Test | One-Way ANOVA | Binomial Test | Chi-Square Test |
-| Numeric (Grouped) | Two-Sample t-Test | Two-Way ANOVA | Fisher's Exact Test | Chi-Square Test (Fit) |
-| Categorical | Paired t-Test | One-Way ANCOVA | McNemar's Exact Test | McNemar's Test |
-| Contingency | Pairwise t-Test | Two-Way ANCOVA |  | Mantel-Haenszel Test |
-|  |  | Multivariate ANOVA |  |  |
-|  |  | Repeated Measures ANOVA |  |  |
+| 수치형 | 단일 표본 t-검정 | 일원 분산 분석 | 이항 검정 | 카이제곱 검정 |
+| 수치형 (그룹화) | 이표본 t-검정 | 이원 분산 분석 | 피셔 정확 검정 | 카이제곱 검정 (적합도) |
+| 범주형 | 대응 t-검정 | 일원 공분산 분석 | 맥니마 정확 검정 | 맥니마 검정 |
+| 분할표 | 다중 비교 t-검정 | 이원 공분산 분석 |  | 맨텔-헨젤 검정 |
+|  |  | 다변량 분산 분석 |  |  |
+|  |  | 반복 측정 분산 분석 |  |  |
 
 ---
 
-| Linear Regression | Logistic Regression | Nonparametric | Others |
+| 선형 회귀 | 로지스틱 회귀 | 비모수 | 기타 |
 |---|---|---|---|
-| Correlation | Simple Logistic Regression | Sign Test | Screening Test |
-| Correlation Matrix | Multiple Logistic Regression | Median Test | Epidemiologic Study |
-| Simple Linear Regression | Ordered Logistic Regression | Wilcoxon Signed-Rank Test | Factor Analysis |
-| Multiple Linear Regression | Multinomial Logistic Regression | Wilcoxon Rank-Sum Test | Principal Component Analysis |
-|  |  | Kruskal-Wallis Test | Linear Discriminant Analysis |
-|  |  | Friedman Test |  |
-|  |  | Spearman's Rank Correlation |  |
+| 상관 분석 | 단순 로지스틱 회귀 | 부호 검정 | 스크리닝 검정 |
+| 상관 행렬 | 다중 로지스틱 회귀 | 중앙값 검정 | 역학 연구 |
+| 단순 선형 회귀 | 순서형 로지스틱 회귀 | 윌콕슨 부호 순위 검정 | 요인 분석 |
+| 다중 선형 회귀 | 다항 로지스틱 회귀 | 윌콕슨 순위합 검정 | 주성분 분석 |
+|  |  | 크루스칼-왈리스 검정 | 선형 판별 분석 |
+|  |  | 프리드만 검정 |  |
+|  |  | 스피어만 순위 상관 |  |
 
-### __BIOSTATS includes these plots:__
+### __BIOSTATS에는 다음 플롯들이 포함되어 있습니다:__
 
-| Distribution | Categorical | Relational | Multiple | Others |
+| 분포 | 범주형 | 관계형 | 다중 | 기타 |
 |---|---|---|---|---|
-| Histogram | Count Plot | Scatter Plot | Ultimate Plot | Heatmap |
-| Density Plot | Strip Plot | Line Plot | Pair Plot | FA Plot |
-| Cumulative Plot | Swarm Plot | Regression Plot | Joint Plot | PCA Plot |
-| 2D Histogram | Box Plot |  |  | LDA Plot |
-| 2D Density Plot | Boxen Plot |  |  |  |
-|  | Violin Plot |  |  |  |
-|  | Bar Plot |  |  |  |
+| 히스토그램 | 카운트 플롯 | 산점도 | 궁극의 플롯 | 히트맵 |
+| 밀도 플롯 | 스트립 플롯 | 선 그래프 | 페어 플롯 | FA 플롯 |
+| 누적 플롯 | 스웜 플롯 | 회귀 플롯 | 조인트 플롯 | PCA 플롯 |
+| 2D 히스토그램 | 상자 그림 |  |  | LDA 플롯 |
+| 2D 밀도 플롯 | 박센 플롯 |  |  |  |
+|  | 바이올린 플롯 |  |  |  |
+|  | 막대 그래프 |  |  |  |
 
-# __Quick Start__
+# __빠른 시작__
 
-### __Downloads__
+### __다운로드__
 
-The application can be downloaded from the links below:
+아래 링크에서 애플리케이션을 다운로드할 수 있습니다:
 
 _Windows_ : https://github.com/hikarimusic/BIOSTATS/releases/latest/download/BIOSTATS.exe
 
 _Linux_ : https://github.com/hikarimusic/BIOSTATS/releases/latest/download/BIOSTATS
 
-_(Your computer may warn you not to run BIOSTATS.exe for security concerns. Please ingore it and run it anyway. There is definitely no virus in BIOSTATS because I don't know how to write a virus :D)_
+_(컴퓨터에서 보안 문제로 BIOSTATS.exe를 실행하지 않도록 경고할 수 있습니다. 이를 무시하고 실행하십시오. BIOSTATS에는 바이러스가 전혀 없습니다. 왜냐하면 저는 바이러스를 작성하는 방법을 모르기 때문입니다 :D)_
 
-_(It might take about 10 seconds to open the program. Please give BIOSTATS some time!)_
+_(프로그램을 여는 데 약 10초가 걸릴 수 있습니다. BIOSTATS에 약간의 시간을 주십시오!)_
 
-_(In Linux, you may need to permit the execution by `chmod +x BIOSTATS` before running the program.)_
+_(Linux에서는 프로그램을 실행하기 전에 `chmod +x BIOSTATS`로 실행 권한을 허용해야 할 수 있습니다.)_
 
-### __Examples__
+### __예제__
 
-You can open examples from _Help > Examples_. Sample datasets will be imported, and all the options will be automatically set.
+_도움말 > 예제_에서 예제를 열 수 있습니다. 샘플 데이터셋이 가져와지고 모든 옵션이 자동으로 설정됩니다.
 
 <img src="https://github.com/hikarimusic/BIOSTATS/raw/main/docs/_static/home/examples.png" width=500>
 
-### __Install Package__
+### __패키지 설치__
 
-For programmers, you can install the package from pip:
+프로그래머는 pip에서 패키지를 설치할 수 있습니다:
 
 ```sh
 pip install biostatistics
 ```
 
-The main window can be called directly:
+메인 창을 직접 호출할 수 있습니다:
 
 ```sh
 biostats
 ```
 
-You can also import _biostats_ and use the functions:
+_biostats_를 가져와서 함수를 사용할 수도 있습니다:
 
 ```sh
 :~$ python3
@@ -140,21 +140,21 @@ Location     4    0.004520     0.001130     7.121019  0.000281  ***
 Residual    34    0.005395     0.000159          NaN       NaN  NaN
 ```
 
-# __More__
+# __더 보기__
 
-More information can be found on the official website.
+자세한 정보는 공식 웹사이트에서 찾을 수 있습니다.
 
 * https://hikarimusic.github.io/BIOSTATS/
 
-If you have any suggestion or find any bug, please contach me. We need your help!
+제안 사항이 있거나 버그를 발견하면 저에게 연락하십시오. 여러분의 도움이 필요합니다!
 
-* Contact me: hikarimusic.tm@gmail.com
+* 연락처: hikarimusic.tm@gmail.com
 
-If you use BIOSTATS in your research, it's a good idea to cite the paper of BIOSTATS.
+연구에 BIOSTATS를 사용하는 경우 BIOSTATS 논문을 인용하는 것이 좋습니다.
 
-* Citation: Tung, Yeu-Guang (2022). BIOSTATS: An Intuitive GUI for Biostatistical Analysis. Zenodo. https://doi.org/10.5281/zenodo.10550106
+* 인용: Tung, Yeu-Guang (2022). BIOSTATS: An Intuitive GUI for Biostatistical Analysis. Zenodo. https://doi.org/10.5281/zenodo.10550106
 
-#### __References__:
+#### __참고 문헌__:
 
 McDonald, J.H. _Handbook of Biological Statistics (3rd ed.)_. Sparky House Publishing, Baltimore, Maryland, 2014.
 

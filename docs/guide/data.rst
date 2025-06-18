@@ -1,8 +1,8 @@
-**Handle Data**
+**데이터 처리**
 ===============
 
 
-Open the data
+데이터 열기
 -------------
 
 You can open the data by pressing *Open* button in *Data* window:
@@ -33,9 +33,9 @@ File types that can be opened by BIOSTATS:
 
 .. tip::
 
-    You can press ``o`` to open the data.
+    ``o`` 키를 눌러 데이터를 열 수 있습니다.
 
-Edit the data
+데이터 편집
 -------------
 
 You can edit the data by pressing *Edit* button in *Data* window. and confirm the change by pressing *Confirm* button:
@@ -60,9 +60,9 @@ You can change the number of rows and columns by adjusting the spin boxes above,
 
 .. warning::
 
-    The maximum number of cells in edit mode is limited to 300 for performance concerns. BIOSTATS is not designed for data editing, and you should use other software such as *Excel* or *Google Sheets* for this purpose.
+    편집 모드의 최대 셀 수는 성능 문제로 인해 300개로 제한됩니다. BIOSTATS는 데이터 편집용으로 설계되지 않았으므로 이 목적을 위해서는 *Excel* 또는 *Google Sheets*와 같은 다른 소프트웨어를 사용해야 합니다.
 
-Save the data
+데이터 저장
 -------------
 
 You can save the data by pressing *Save* button in *Data* window:

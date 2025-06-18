@@ -12,11 +12,11 @@ class Test(ttk.Frame):
 
     def __init__(self, parent, master):
         
-        # Initialize
+        # 초기화
         ttk.Frame.__init__(self, parent)
         self.master = master
 
-        # Variable
+        # 변수
         self.test_type = ["", "Basic", "t-Test", "ANOVA", "Exact Test", "Chi-Square Test", "Linear Regression", "Logistic Regression", "Nonparametric", "Others"]
         self.test_list = {
             "Basic"               : ["", "Numeric", "Numeric (Grouped)", "Categorical", "Contingency"] ,
@@ -34,17 +34,17 @@ class Test(ttk.Frame):
         for t in self.test_list:
             self.test_2[t] = tk.StringVar(value=self.test_list[t][1])
 
-        # Setup
+        # 설정
         self.setup()
 
     def setup(self):
 
-        # Configure
+        # 구성
         self.rowconfigure(index=2, weight=1)
         self.columnconfigure(index=0, weight=1)
         self.configure(padding=(10,10))
 
-        # Frame
+        # 프레임
         self.menu_frame = ttk.Frame(self)
         self.menu_frame.grid(row=0, column=0, sticky="nsew")
         self.menu_frame.columnconfigure(index=2, weight=1)
@@ -62,7 +62,7 @@ class Test(ttk.Frame):
         self.save_button.config(command=self.save)
         self.save_button.grid(row=3, column=0, padx=5, pady=5, sticky="e")
 
-        # Menu
+        # 메뉴
         self.menu_1 = ttk.OptionMenu(
             self.menu_frame, self.test_1, *self.test_type, command=lambda e: self.test_change()
         )
@@ -75,7 +75,7 @@ class Test(ttk.Frame):
             self.menu_2[t].grid(row=0, column=1, padx=5, pady=5, sticky="nsew")
             self.menu_2[t].grid_remove()
 
-        # Option
+        # 옵션
         self.option_label = {}
         self.option = {}
         for i in range(4):
@@ -84,13 +84,13 @@ class Test(ttk.Frame):
             self.option[i] = Option(self.option_frame, self)
             self.option[i].grid(row=i, column=1, sticky="nsew")
 
-        # Result
+        # 결과
         self.result = {}
         for i in range(3):
             self.result[i] = Tree(self.result_frame, 1)
             self.result[i].grid(row=i, column=0, padx=5, pady=5, sticky="nsew")
 
-        # Shortcut
+        # 단축키
         self.bind("<Control-s>", lambda event: self.save())
 
         

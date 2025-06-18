@@ -1,7 +1,7 @@
-**Setting**
+**설정**
 ===========
 
-Set the precision
+정밀도 설정
 -----------------
 
 You can set the precision of numbers by adjusting *Precision* spin box:
@@ -9,7 +9,7 @@ You can set the precision of numbers by adjusting *Precision* spin box:
 .. image:: ../_static/guide/set_precision.png
    :width: 500
 
-Scientific notation
+과학적 표기법
 -------------------
 
 You can change the numbers to scientific notation by turning on *Scientific* switch:
@@ -17,7 +17,7 @@ You can change the numbers to scientific notation by turning on *Scientific* swi
 .. image:: ../_static/guide/scientific_notation.png
    :width: 500
 
-Dark mode
+다크 모드
 ---------
 
 You can change the display to dark mode by turning on *Dark Mode* switch:

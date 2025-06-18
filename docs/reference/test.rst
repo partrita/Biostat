@@ -1,9 +1,9 @@
-**Test**
+**검정**
 ========
 
 .. currentmodule:: biostats
 
-Basic
+기본
 -----
 
 .. autosummary::
@@ -14,7 +14,7 @@ Basic
     categorical
     contingency
 
-t-Test
+t-검정
 ------
 
 .. autosummary::
@@ -25,7 +25,7 @@ t-Test
     paired_t_test
     pairwise_t_test
 
-ANOVA
+분산 분석 (ANOVA)
 -----
 
 .. autosummary::
@@ -38,7 +38,7 @@ ANOVA
     multivariate_anova
     repeated_measures_anova
 
-Exact Test
+정확 검정
 ----------
 
 .. autosummary::
@@ -48,7 +48,7 @@ Exact Test
     fisher_exact_test
     mcnemar_exact_test
 
-Chi-Square Test
+카이제곱 검정
 ---------------
 
 .. autosummary::
@@ -59,7 +59,7 @@ Chi-Square Test
     mcnemar_test
     mantel_haenszel_test
 
-Linear Regression
+선형 회귀
 -----------------
 
 .. autosummary::
@@ -70,7 +70,7 @@ Linear Regression
     simple_linear_regression
     multiple_linear_regression
 
-Logistic Regression
+로지스틱 회귀
 -------------------
 
 .. autosummary::
@@ -81,7 +81,7 @@ Logistic Regression
     ordered_logistic_regression
     multinomial_logistic_regression
 
-Nonparametric
+비모수
 -------------
 
 .. autosummary::
@@ -95,7 +95,7 @@ Nonparametric
     friedman_test
     spearman_rank_correlation
 
-Others
+기타
 ------
 
 .. autosummary::

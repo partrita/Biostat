@@ -9,31 +9,31 @@ from biostats.model.util import _CC, _process, _add_p
 
 def one_way_anova(data, variable, between):
     '''
-    Test whether the mean values of a variable are different between several groups.
+    여러 그룹 간에 변수의 평균값이 다른지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least one numeric column and one categorical column.
+        입력 데이터입니다. 하나 이상의 수치형 열과 하나 이상의 범주형 열을 포함해야 합니다.
     variable : :py:class:`str`
-        The numeric variable that we want to calculate mean values of.
+        평균값을 계산하려는 수치형 변수입니다.
     between : :py:class:`str`
-        The categorical variable that specifies which group the samples belong to. Maximum 20 groups.
+        표본이 속한 그룹을 지정하는 범주형 변수입니다. 최대 20개 그룹입니다.
 
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The counts, mean values, standard deviations, and confidence intervals of each group.
+        각 그룹의 개수, 평균값, 표준 편차 및 신뢰 구간입니다.
     result : :py:class:`pandas.DataFrame`
-        The degree of freedom, sum of squares, mean of squares, F statistic, and p-value of the test.
+        검정의 자유도, 제곱합, 제곱 평균, F 통계량 및 p-값입니다.
 
-    See also
+    참고 항목
     --------
-    one_way_ancova : Test whether the mean values are different between groups, when another variable is controlled.
-    two_way_anova : Test whether the mean values are different between groups, when classified in two ways.
-    kruskal_wallis_test : The non-parametric version of one-way ANOVA.
+    one_way_ancova : 다른 변수가 통제될 때 그룹 간 평균값이 다른지 검정합니다.
+    two_way_anova : 두 가지 방식으로 분류될 때 그룹 간 평균값이 다른지 검정합니다.
+    kruskal_wallis_test : 일원 분산 분석의 비모수적 버전입니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("one_way_anova.csv")
@@ -97,7 +97,7 @@ def one_way_anova(data, variable, between):
     Location     4    0.004520     0.001130     7.121019  0.000281  ***
     Residual    34    0.005395     0.000159          NaN       NaN  NaN
 
-    The p-value < 0.001, so the mean values of *Length* in each group are significantly different.
+    p-값이 0.001보다 작으므로 각 그룹의 *Length* 평균값은 유의하게 다릅니다.
 
     '''
 
@@ -155,32 +155,32 @@ def one_way_anova(data, variable, between):
 
 def two_way_anova(data, variable, between_1, between_2):
     '''
-    Test whether the mean values of a variable are different between several groups, when the groups are classified in two ways.
+    그룹이 두 가지 방식으로 분류될 때 여러 그룹 간에 변수의 평균값이 다른지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least one numeric column and two categorical columns.
+        입력 데이터입니다. 하나 이상의 수치형 열과 두 개의 범주형 열을 포함해야 합니다.
     variable : :py:class:`str`
-        The numeric variable that we want to calculate mean values of.
+        평균값을 계산하려는 수치형 변수입니다.
     between_1 : :py:class:`str`
-        The first categorical variable that specifies the groups of the samples. Maximum 20 groups.
+        표본의 그룹을 지정하는 첫 번째 범주형 변수입니다. 최대 20개 그룹입니다.
     between_2 : :py:class:`str`
-        The second categorical variable that specifies the groups of the samples. Maximum 20 groups.
+        표본의 그룹을 지정하는 두 번째 범주형 변수입니다. 최대 20개 그룹입니다.
 
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The counts, mean values, standard deviations, and confidence intervals of each combination of groups.
+        각 그룹 조합의 개수, 평균값, 표준 편차 및 신뢰 구간입니다.
     result : :py:class:`pandas.DataFrame`
-        The degrees of freedom, sums of squares, means of squares, F statistics, and p-values of the test.
+        검정의 자유도, 제곱합, 제곱 평균, F 통계량 및 p-값입니다.
 
-    See also
+    참고 항목
     --------
-    two_way_ancova : Two-way ANOVA with another variable being controlled. 
-    one_way_anova : Test whether the mean values are different between groups.
+    two_way_ancova : 다른 변수가 통제되는 이원 분산 분석입니다.
+    one_way_anova : 그룹 간 평균값이 다른지 검정합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("two_way_anova.csv")
@@ -244,7 +244,7 @@ def two_way_anova(data, variable, between_1, between_2):
     Sex : Genotype     2    0.814641     0.407321     0.515295  0.602515  <NA>
     Residual          30   23.713823     0.790461          NaN       NaN  <NA>
 
-    The p-value of *Sex* > 0.05, so *Activity* are not different between the two *Sex*. The p-value of *Genotype* > 0.05, so *Activity* are not different between the three *Genotype*. The p-value of interaction > 0.05, so there is no interaction between *Sex* and *Genotype*. 
+    *Sex*의 p-값이 0.05보다 크므로 두 *Sex* 간에 *Activity*는 다르지 않습니다. *Genotype*의 p-값이 0.05보다 크므로 세 *Genotype* 간에 *Activity*는 다르지 않습니다. 상호 작용의 p-값이 0.05보다 크므로 *Sex*와 *Genotype* 간에 상호 작용이 없습니다.
 
     '''
 
@@ -313,32 +313,32 @@ def two_way_anova(data, variable, between_1, between_2):
 
 def one_way_ancova(data, variable, between, covariable):
     '''
-    Test whether the mean values of a variable are different between several groups, when another variable is controlled.
+    다른 변수가 통제될 때 여러 그룹 간에 변수의 평균값이 다른지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least two numeric columns and one categorical column.
+        입력 데이터입니다. 두 개 이상의 수치형 열과 하나의 범주형 열을 포함해야 합니다.
     variable : :py:class:`str`
-        The numeric variable that we want to calculate mean values of.
+        평균값을 계산하려는 수치형 변수입니다.
     between : :py:class:`str`
-        The categorical variable that specifies which group the samples belong to. Maximum 20 groups.
+        표본이 속한 그룹을 지정하는 범주형 변수입니다. 최대 20개 그룹입니다.
     covariable : :py:class:`str`
-        Another numeric variable that we want to control.
+        통제하려는 다른 수치형 변수입니다.
 
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The counts, mean values and standard deviations of the variable, and that of the covariable in each group.
+        각 그룹에서 변수의 개수, 평균값 및 표준 편차와 공변량의 개수, 평균값 및 표준 편차입니다.
     result : :py:class:`pandas.DataFrame`
-        The sums of squares, degrees of freedom, F statistics, and p-values of the test.
+        검정의 제곱합, 자유도, F 통계량 및 p-값입니다.
 
-    See also
+    참고 항목
     --------
-    one_way_anova : Test whether the mean values are different between groups.
-    two_way_ancova : Test whether the mean values are different between groups classified in two ways, when another variable is controlled.
+    one_way_anova : 그룹 간 평균값이 다른지 검정합니다.
+    two_way_ancova : 다른 변수가 통제될 때 두 가지 방식으로 분류된 그룹 간 평균값이 다른지 검정합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("one_way_ancova.csv")
@@ -410,7 +410,7 @@ def one_way_ancova(data, variable, between, covariable):
     Temp      7025.952857     1  2462.205692  2.877499e-40  ***
     Residual   125.554874    44          NaN           NaN  NaN
 
-    The p-value of *Species* < 0.05, so the mean values of *Pulse* are different between the three *Species*, even after *Temp* being controlled.
+    *Species*의 p-값이 0.05보다 작으므로 *Temp*가 통제된 후에도 세 *Species* 간에 *Pulse*의 평균값은 다릅니다.
 
     '''
 
@@ -476,34 +476,34 @@ def one_way_ancova(data, variable, between, covariable):
 
 def two_way_ancova(data, variable, between_1, between_2, covariable):
     '''
-    Test whether the mean values of a variable are different between several groups classified in two ways, when another variable is controlled.
+    다른 변수가 통제될 때 두 가지 방식으로 분류된 여러 그룹 간에 변수의 평균값이 다른지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least two numeric columns and two categorical columns.
+        입력 데이터입니다. 두 개 이상의 수치형 열과 두 개의 범주형 열을 포함해야 합니다.
     variable : :py:class:`str`
-        The numeric variable that we want to calculate mean values of.
+        평균값을 계산하려는 수치형 변수입니다.
     between_1 : :py:class:`str`
-        The first categorical variable that specifies the groups of the samples. Maximum 20 groups.
+        표본의 그룹을 지정하는 첫 번째 범주형 변수입니다. 최대 20개 그룹입니다.
     between_2 : :py:class:`str`
-        The second categorical variable that specifies the groups of the samples. Maximum 20 groups.
+        표본의 그룹을 지정하는 두 번째 범주형 변수입니다. 최대 20개 그룹입니다.
     covariable : :py:class:`str`
-        Another numeric variable that we want to control.
+        통제하려는 다른 수치형 변수입니다.
 
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The counts, mean values and standard deviations of the variable, and that of the covariable in each combination of groups.
+        각 그룹 조합에서 변수의 개수, 평균값 및 표준 편차와 공변량의 개수, 평균값 및 표준 편차입니다.
     result : :py:class:`pandas.DataFrame`
-        The sums of squares, degrees of freedom, F statistics, and p-values of the test.
+        검정의 제곱합, 자유도, F 통계량 및 p-값입니다.
 
-    See also
+    참고 항목
     --------
-    two_way_anova : Test whether the mean values are different between several groups classified in two ways.
-    one_way_ancova : Test whether the mean values are different between groups, when another variable is controlled.
+    two_way_anova : 두 가지 방식으로 분류된 여러 그룹 간 평균값이 다른지 검정합니다.
+    one_way_ancova : 다른 변수가 통제될 때 그룹 간 평균값이 다른지 검정합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("two_way_ancova.csv")
@@ -568,7 +568,7 @@ def two_way_ancova(data, variable, between_1, between_2, covariable):
     Age               1.286714     1     1.663822  0.207280  <NA>
     Residual         22.427109    29          NaN       NaN  <NA>
 
-    After controlling *Age*, the p-value of *Sex* > 0.05, so *Activity* are not different between the two *Sex*. The p-value of *Genotype* > 0.05, so *Activity* are not different between the three *Genotype*. The p-value of interaction > 0.05, so there is no interaction between *Sex* and *Genotype*. 
+    *Age*를 통제한 후 *Sex*의 p-값이 0.05보다 크므로 두 *Sex* 간에 *Activity*는 다르지 않습니다. *Genotype*의 p-값이 0.05보다 크므로 세 *Genotype* 간에 *Activity*는 다르지 않습니다. 상호 작용의 p-값이 0.05보다 크므로 *Sex*와 *Genotype* 간에 상호 작용이 없습니다.
 
     '''
 
@@ -644,29 +644,29 @@ def two_way_ancova(data, variable, between_1, between_2, covariable):
 
 def multivariate_anova(data, variable, between):
     '''
-    Test whether the mean values of several variables are different between several groups.
+    여러 그룹 간에 여러 변수의 평균값이 다른지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least two numeric columns and one categorical column.
+        입력 데이터입니다. 두 개 이상의 수치형 열과 하나의 범주형 열을 포함해야 합니다.
     variable : :py:class:`list`
-        The list of numeric variables that we want to calculate mean values of.
+        평균값을 계산하려는 수치형 변수의 목록입니다.
     between : :py:class:`str`
-        The categorical variable that specifies which group the samples belong to. Maximum 20 groups.
+        표본이 속한 그룹을 지정하는 범주형 변수입니다. 최대 20개 그룹입니다.
 
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The mean values and standard deviations of each numeric variable in each group.
+        각 그룹에서 각 수치형 변수의 평균값과 표준 편차입니다.
     result : :py:class:`pandas.DataFrame`
-        The degree of freedom, Pillai's Trace, F statistic, and p-value of the test.
+        검정의 자유도, 필라이의 트레이스, F 통계량 및 p-값입니다.
 
-    See also
+    참고 항목
     --------
-    one_way_anova : Test whether the mean values of a variable are different between groups.
+    one_way_anova : 그룹 간 변수의 평균값이 다른지 검정합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("multivariate_anova.csv")
@@ -699,7 +699,7 @@ def multivariate_anova(data, variable, between):
              D.F.  Pillai's Trace  F Statistic       p-value     
     species     2        0.945314     65.87798  9.902977e-40  ***
 
-    The p-value < 0.001, so the mean values of *sepal_length* and *sepal_width* in each group are significantly different.
+    p-값이 0.001보다 작으므로 각 그룹의 *sepal_length* 및 *sepal_width* 평균값은 유의하게 다릅니다.
 
     '''
 
@@ -749,32 +749,32 @@ def multivariate_anova(data, variable, between):
 
 def repeated_measures_anova(data, variable, between, subject):
     '''
-    Test whether the mean values of a variable are different between several groups on repeated measured data.
+    반복 측정 데이터에서 여러 그룹 간에 변수의 평균값이 다른지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least one numeric column and one categorical column, as well as a column specifying the subjects.
+        입력 데이터입니다. 하나 이상의 수치형 열과 하나의 범주형 열, 그리고 피험자를 지정하는 열을 포함해야 합니다.
     variable : :py:class:`str`
-        The numeric variable that we want to calculate mean values of.
+        평균값을 계산하려는 수치형 변수입니다.
     between : :py:class:`str`
-        The categorical variable that specifies which group the samples belong to. Maximum 20 groups.
+        표본이 속한 그룹을 지정하는 범주형 변수입니다. 최대 20개 그룹입니다.
     subject : :py:class:`str`
-        The variable that specifies the subject ID. Samples measured on the same subject should have the same ID. Maximum 2000 subjects.
+        피험자 ID를 지정하는 변수입니다. 동일한 피험자에서 측정된 표본은 동일한 ID를 가져야 합니다. 최대 2000명의 피험자입니다.
 
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The counts, mean values, standard deviations, and confidence intervals of each group.
+        각 그룹의 개수, 평균값, 표준 편차 및 신뢰 구간입니다.
     result : :py:class:`pandas.DataFrame`
-        The degree of freedom, sum of squares, mean of squares, F statistic, and p-value of the test.
+        검정의 자유도, 제곱합, 제곱 평균, F 통계량 및 p-값입니다.
 
-    See also
+    참고 항목
     --------
-    one_way_anova : Test whether the mean values of a variable are different between groups.
-    friedman_test : The non-parametric version of repeated measure ANOVA.
+    one_way_anova : 그룹 간 변수의 평균값이 다른지 검정합니다.
+    friedman_test : 반복 측정 분산 분석의 비모수적 버전입니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("repeated_measures_anova.csv")
@@ -818,7 +818,7 @@ def repeated_measures_anova(data, variable, between, subject):
     drug         3       698.2   232.733333    24.758865  0.00002  ***
     Residual    12       112.8     9.400000          NaN      NaN  NaN
 
-    The p-value < 0.001, so the mean values of *response* in each group are significantly different.
+    p-값이 0.001보다 작으므로 각 그룹의 *response* 평균값은 유의하게 다릅니다.
 
     '''
 

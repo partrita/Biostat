@@ -1,9 +1,9 @@
-**Plot**
+**플롯**
 ========
 
 .. currentmodule:: biostats
 
-Distribution
+분포
 ------------
 
 .. autosummary::
@@ -15,7 +15,7 @@ Distribution
     histogram_2D
     density_plot_2D
 
-Categorical
+범주형
 -----------
 
 .. autosummary::
@@ -29,7 +29,7 @@ Categorical
     violin_plot
     bar_plot
 
-Relational
+관계형
 ----------
 
 .. autosummary::
@@ -39,7 +39,7 @@ Relational
     line_plot
     regression_plot
 
-Multiple
+다중
 --------
 
 .. autosummary::
@@ -49,7 +49,7 @@ Multiple
     pair_plot
     joint_plot
 
-Others
+기타
 ------
 
 .. autosummary::

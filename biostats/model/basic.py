@@ -7,26 +7,26 @@ from biostats.model.util import _CC, _process, _add_p
 
 def numeric(data, variable):
     '''
-    Compute descriptive statistics of numeric variables.
+    수치형 변수의 기술 통계량을 계산합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least one numeric column.
+        입력 데이터입니다. 하나 이상의 수치형 열을 포함해야 합니다.
     variable : :py:class:`list`
-        The list of numeric variables to be analyzed.
+        분석할 수치형 변수의 목록입니다.
 
-    Returns
+    반환값
     -------
     result : :py:class:`pandas.DataFrame`
-        The count, arithmetic mean, median, geometric mean, harmonic mean, mode, / sample variance, sample standard deviation, coefficient of variation, population variance, population standard deviation, / minimum, 25% percentile, 50% percentile, 75% percentile, maximum, range, interquartile range, / standard error, two-sided 95% confidence interval (lower and upper limit), and one-sided 95% confidence interval (lower and upper limit) of each variable.
+        각 변수의 개수, 산술 평균, 중앙값, 기하 평균, 조화 평균, 최빈값, / 표본 분산, 표본 표준 편차, 변동 계수, 모분산, 모표준 편차, / 최솟값, 25% 백분위수, 50% 백분위수, 75% 백분위수, 최댓값, 범위, 사분위 범위, / 표준 오차, 양측 95% 신뢰 구간(하한 및 상한), 단측 95% 신뢰 구간(하한 및 상한)입니다.
 
-    See also
+    참고 항목
     --------
-    numeric_grouped : Compute descriptive statistics of a numeric variable in different groups.
-    one_sample_t_test : Test whether the mean value of a variable is different from the expected value.
+    numeric_grouped : 다른 그룹에서 수치형 변수의 기술 통계량을 계산합니다.
+    one_sample_t_test : 변수의 평균값이 예상 값과 다른지 검정합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("numeric.csv")
@@ -72,9 +72,9 @@ def numeric(data, variable):
     95% CI: Lower                45.336654    104.288172    12.037306
     95% CI: Upper                94.663346    267.934050    24.229360
     (One-Sided) 95% CI: Lower    50.111624    120.129579    13.217533
-    (One-Sided) 95% CI: Upper    89.888376    252.092643    23.049133
+    (단측) 95% CI: 상한    89.888376    252.092643    23.049133
 
-    Descriptive statistics of the three variables are computed.
+    세 변수의 기술 통계량이 계산됩니다.
 
     '''
 
@@ -129,28 +129,28 @@ def numeric(data, variable):
 
 def numeric_grouped(data, variable, group):
     '''
-    Compute descriptive statistics of a numeric variable in different groups.
+    다른 그룹에서 수치형 변수의 기술 통계량을 계산합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least one numeric column and one categorical column.
+        입력 데이터입니다. 하나 이상의 수치형 열과 하나의 범주형 열을 포함해야 합니다.
     variable : :py:class:`str`
-        The numeric variable that we want to analyze.
+        분석하려는 수치형 변수입니다.
     group : :py:class:`str`
-        The categorical variable that specifies which group the samples belong to. Maximum 20 groups.
+        표본이 속한 그룹을 지정하는 범주형 변수입니다. 최대 20개 그룹입니다.
 
-    Returns
+    반환값
     -------
     result : :py:class:`pandas.DataFrame`
-        The count, arithmetic mean, median, geometric mean, harmonic mean, mode, / sample variance, sample standard deviation, coefficient of variation, population variance, population standard deviation, / minimum, 25% percentile, 50% percentile, 75% percentile, maximum, range, interquartile range, / standard error, two-sided 95% confidence interval (lower and upper limit), and one-sided 95% confidence interval (lower and upper limit) of the variable in each group.
+        각 그룹에서 변수의 개수, 산술 평균, 중앙값, 기하 평균, 조화 평균, 최빈값, / 표본 분산, 표본 표준 편차, 변동 계수, 모분산, 모표준 편차, / 최솟값, 25% 백분위수, 50% 백분위수, 75% 백분위수, 최댓값, 범위, 사분위 범위, / 표준 오차, 양측 95% 신뢰 구간(하한 및 상한), 단측 95% 신뢰 구간(하한 및 상한)입니다.
 
-    See also
+    참고 항목
     --------
-    numeric : Compute descriptive statistics of numeric variables.
-    one_way_anova : Test whether the mean values of a variable are different between several groups.
+    numeric : 수치형 변수의 기술 통계량을 계산합니다.
+    one_way_anova : 여러 그룹 간에 변수의 평균값이 다른지 검정합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("numeric_grouped.csv")
@@ -205,9 +205,9 @@ def numeric_grouped(data, variable, group):
     95% CI: Lower               45.336654   26.416156
     95% CI: Upper               94.663346   73.139400
     (One-Tail) 95% CI: Lower    50.111624   30.939105
-    (One-Tail) 95% CI: Upper    89.888376   68.616451
+    (단측) 95% CI: 상한    89.888376   68.616451
 
-    Descriptive statistics of *Count* in the two *Animal* are computed.
+    두 *Animal*에서 *Count*의 기술 통계량이 계산됩니다.
 
     '''
 
@@ -262,26 +262,26 @@ def numeric_grouped(data, variable, group):
 
 def categorical(data, variable):
     '''
-    Compute descriptive statistics of a categorical variable.
+    범주형 변수의 기술 통계량을 계산합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least one categorical column.
+        입력 데이터입니다. 하나 이상의 범주형 열을 포함해야 합니다.
     variable : :py:class:`str`
-        The categorical variable to be analyzed. Maximum 20 groups.
+        분석할 범주형 변수입니다. 최대 20개 그룹입니다.
 
-    Returns
+    반환값
     -------
     result : :py:class:`pandas.DataFrame`
-        The count, proportion, 95% confidence interval (lower and upper limit) of each group.
+        각 그룹의 개수, 비율, 95% 신뢰 구간(하한 및 상한)입니다.
 
-    See also
+    참고 항목
     --------
-    contingency : Compute the contingency table of two categorical variables.
-    chi_square_test_fit : Test whether the proportion of groups in a categorical variable is different from the expected proportion.
+    contingency : 두 범주형 변수의 분할표를 계산합니다.
+    chi_square_test_fit : 범주형 변수에서 그룹의 비율이 예상 비율과 다른지 검정합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("categorical.csv")
@@ -309,7 +309,7 @@ def categorical(data, variable):
     Red        35       0.175       0.128605       0.233644
     Green      22       0.110       0.073772       0.160927
 
-    Descriptive statistics of *Color* are computed.
+    *Color*의 기술 통계량이 계산됩니다.
 
     '''
 
@@ -349,35 +349,35 @@ def categorical(data, variable):
 
 def contingency(data, variable_1, variable_2, kind="count"):
     '''
-    Compute the contingency table of two categorical variables.
+    두 범주형 변수의 분할표를 계산합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least two categorical columns.
+        입력 데이터입니다. 두 개 이상의 범주형 열을 포함해야 합니다.
     variable_1 : :py:class:`str`
-        The first categorical variable. Maximum 20 groups.
+        첫 번째 범주형 변수입니다. 최대 20개 그룹입니다.
     variable_2 : :py:class:`str`
-        The second categorical variable. Maximum 20 groups.
+        두 번째 범주형 변수입니다. 최대 20개 그룹입니다.
     kind : :py:class:`str`
-        The way to summarize the contingency table.
+        분할표를 요약하는 방법입니다.
         
-        * "count" : Count the frequencies of occurance.
-        * "vertical" : Calculate proportions vertically, so that the sum of each column equals 1.
-        * "horizontal" : Calculate proportions horizontally, so that the sum of each row equals 1.
-        * "overall" : Calculate overall proportions, so that the sum of the whole table equals 1.
+        * "count" : 발생 빈도를 계산합니다.
+        * "vertical" : 각 열의 합계가 1이 되도록 세로로 비율을 계산합니다.
+        * "horizontal" : 각 행의 합계가 1이 되도록 가로로 비율을 계산합니다.
+        * "overall" : 전체 테이블의 합계가 1이 되도록 전체 비율을 계산합니다.
 
-    Returns
+    반환값
     -------
     result : :py:class:`pandas.DataFrame`
-        The contingency table of the two categorical variables.
+        두 범주형 변수의 분할표입니다.
 
-    See also
+    참고 항목
     --------
-    categorical : Compute descriptive statistics of a categorical variable.
-    chi_square_test : Test whether there is an association between two categorical variables.
+    categorical : 범주형 변수의 기술 통계량을 계산합니다.
+    chi_square_test : 두 범주형 변수 간에 연관성이 있는지 검정합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("contingency.csv")

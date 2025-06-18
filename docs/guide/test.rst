@@ -1,7 +1,7 @@
-**Perform Tests**
+**검정 수행**
 =================
 
-Select a test
+검정 선택
 -------------
 
 You can select a test from the menu in *Test* window:
@@ -20,7 +20,7 @@ You can select a test from the menu in *Test* window:
     * `What statistical analysis should I use? <https://stats.oarc.ucla.edu/sas/whatstat/what-statistical-analysis-should-i-usestatistical-analyses-using-sas>`_
     * `Statology Tutorials <https://www.statology.org/tutorials/>`_
 
-Choose the options
+옵션 선택
 ------------------
 
 You can choose the options from the option bars:
@@ -50,9 +50,9 @@ Different kinds of options:
 
 .. note::
 
-    The test results will not show if some options are not properly selected. Please take a look at :doc:`../reference/index` to check the conditions for each test.
+    일부 옵션이 제대로 선택되지 않으면 검정 결과가 표시되지 않습니다. 각 검정의 조건은 :doc:`../reference/index`를 참조하십시오.
 
-Save the result
+결과 저장
 ---------------
 
 You can save the result by pressing *Save* button in *Test* window:

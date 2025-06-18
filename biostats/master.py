@@ -13,11 +13,11 @@ class Master(ttk.Frame):
 
     def __init__(self, parent, master):
 
-        # Initialize
+        # 초기화
         ttk.Frame.__init__(self, parent)
         self.master = master
 
-        # Variables
+        # 변수
         self.window = tk.IntVar(value=0)
         self.scientific = tk.IntVar(value=0)
         self.precision = tk.IntVar(value=1)
@@ -26,16 +26,16 @@ class Master(ttk.Frame):
         self.data = pd.DataFrame()
         self.data_col = {"num":[], "cat":[]}
 
-        # Setup
+        # 설정
         self.setup() 
 
     def setup(self):
 
-        # Configure
+        # 구성
         self.columnconfigure(index=1, weight=1)
         self.rowconfigure(index=3, weight=1)
 
-        # Window
+        # 창
         self.window_frame = ttk.LabelFrame(self, text="Window", padding=(10,5))
         self.window_frame.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
 
@@ -47,7 +47,7 @@ class Master(ttk.Frame):
             self.choose[i].configure(variable=self.window, value=i, command=self.switch)
             self.choose[i].grid(row=i, column=0, padx=5, pady=10, sticky="nsew")
 
-        # Setting
+        # 설정
         self.setting_frame = ttk.LabelFrame(self, text="Setting", padding=(10,5))
         self.setting_frame.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
 
@@ -75,7 +75,7 @@ class Master(ttk.Frame):
         self.screenmode_label = ttk.Label(self.setting_frame, text="Dark Mode")
         self.screenmode_label.grid(row=2, column=1, padx=5, pady=10, sticky="nsew")
 
-        # Help
+        # 도움말
         self.help_frame = ttk.LabelFrame(self, text="Help", padding=(10,5))
         self.help_frame.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
 
@@ -87,19 +87,19 @@ class Master(ttk.Frame):
         self.manual_menu = Manual(self.help_frame, self, text="Manual", width=9)
         self.manual_menu.grid(row=1, column=0, padx=5, pady=10, sticky="n")
 
-        # Data
+        # 데이터
         self.data_win = Data(self, self)
         self.data_win.grid(row=0, column=1, rowspan=4, padx=10, pady=10, sticky="nsew")
 
-        # Test
+        # 검정
         self.test_win = Test(self, self)
         self.test_win.grid(row=0, column=1, rowspan=4, padx=10, pady=10, sticky="nsew")
 
-        # Plot
+        # 플롯
         self.plot_win = Plot(self, self)
         self.plot_win.grid(row=0, column=1, rowspan=4, padx=10, pady=10, sticky="nsew")
 
-        # Initial
+        # 초기
         self.window.set(0)
         self.update()
         self.switch()
@@ -132,7 +132,7 @@ class Master(ttk.Frame):
 
         self.data_win.tree.data = self.data
         self.data_win.tree.show(self.scientific.get(), self.precision.get())
-        #self.data_win.table.data_write(self.data)
+        #self.data_win.table.data_write(self.data) # 데이터 테이블에 데이터 쓰기
 
         self.test_win.test_1.set("Basic")
         self.test_win.test_2["Basic"].set("Numeric")

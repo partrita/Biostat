@@ -9,31 +9,31 @@ from biostats.model.util import _CC, _process, _add_p
 
 def correlation(data, x, y):
     '''
-    Test whether there is a correlation between two numeric variables.
+    두 수치형 변수 간에 상관 관계가 있는지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least two numeric columns.
+        입력 데이터입니다. 두 개 이상의 수치형 열을 포함해야 합니다.
     x : :py:class:`str`
-        The first numeric variable.
+        첫 번째 수치형 변수입니다.
     y : :py:class:`str`
-        The second numeric variable. Switching the two variables will not change the result.
+        두 번째 수치형 변수입니다. 두 변수를 바꿔도 결과는 변경되지 않습니다.
     
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The correlation coefficient and the confidence interval.
+        상관 계수와 신뢰 구간입니다.
     result : :py:class:`pandas.DataFrame`
-        The degree of freedom, t statistic, and p-value of the test.
+        검정의 자유도, t 통계량 및 p-값입니다.
     
-    See also
+    참고 항목
     --------
-    correlation_matrix : Compute the correlation coefficients between every two variables.
-    simple_linear_regression : Fit an equation that predicts a numeric variable from another numeric variable.
-    spearman_rank_correlation : The non-parametric version of correlation test.
+    correlation_matrix : 모든 두 변수 간의 상관 계수를 계산합니다.
+    simple_linear_regression : 다른 수치형 변수로부터 수치형 변수를 예측하는 방정식을 적합합니다.
+    spearman_rank_correlation : 상관 검정의 비모수적 버전입니다.
     
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("correlation.csv")
@@ -70,7 +70,7 @@ def correlation(data, x, y):
            D.F.  t Statistic   p-value      
     Model    15    -2.022457  0.061336  <NA>
 
-    The p-value > 0.05, so there is no significant correlation between *Latitude* and *Species*.
+    p-값이 0.05보다 크므로 *Latitude*와 *Species* 간에 유의한 상관 관계가 없습니다.
 
     '''
 
@@ -118,26 +118,26 @@ def correlation(data, x, y):
 
 def correlation_matrix(data, variable):
     '''
-    Compute the correlation coefficients between every two variables.
+    모든 두 변수 간의 상관 계수를 계산합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least two numeric columns.
+        입력 데이터입니다. 두 개 이상의 수치형 열을 포함해야 합니다.
     variable : :py:class:`list`
-        The list of numeric variables.
+        수치형 변수의 목록입니다.
     
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The correlation matrix.
+        상관 행렬입니다.
     
-    See also
+    참고 항목
     --------
-    correlation : Test whether there is a correlation between two numeric variables.
-    multiple_linear_regression : Fit an equation that predicts a numeric variable from other variables.
+    correlation : 두 수치형 변수 간에 상관 관계가 있는지 검정합니다.
+    multiple_linear_regression : 다른 변수로부터 수치형 변수를 예측하는 방정식을 적합합니다.
     
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("correlation_matrix.csv")
@@ -168,7 +168,7 @@ def correlation_matrix(data, variable):
     SO4      -0.017380  0.048776  0.079792 -0.049872 -0.072411  1.000000 -0.087130
     NO3       0.309233 -0.099528 -0.001596  0.036269  0.273426 -0.087130  1.000000
 
-    The correlation matrix is computed.
+    상관 행렬이 계산됩니다.
 
     '''
 
@@ -186,31 +186,31 @@ def correlation_matrix(data, variable):
 
 def simple_linear_regression(data, x, y):
     '''
-    Fit an equation that predicts a numeric variable from another numeric variable.
+    다른 수치형 변수로부터 수치형 변수를 예측하는 방정식을 적합합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least two numeric columns.
+        입력 데이터입니다. 두 개 이상의 수치형 열을 포함해야 합니다.
     x : :py:class:`str`
-        The predictor variable. Must be numeric.
+        예측 변수입니다. 수치형이어야 합니다.
     y : :py:class:`str`
-        The response variable. Must be numeric.
+        반응 변수입니다. 수치형이어야 합니다.
     
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The coefficients of the fitted equation, along with the confidence intervals, standard errors, t statistics, and p-values.
+        적합된 방정식의 계수와 신뢰 구간, 표준 오차, t 통계량 및 p-값입니다.
     result : :py:class:`pandas.DataFrame`
-        The R-squared, adjusted R-squared, F statistic, and p-value of the fitted model.
+        적합된 모델의 R-제곱, 수정된 R-제곱, F 통계량 및 p-값입니다.
     
-    See also
+    참고 항목
     --------
-    multiple_linear_regression : Fit an equation that predicts a numeric variable from other variables.
-    simple_logistic_regression : Fit an equation that predicts a dichotomous categorical variable from a numeric variable.
-    correlation : Test the correlation between two numeric variables.
+    multiple_linear_regression : 다른 변수로부터 수치형 변수를 예측하는 방정식을 적합합니다.
+    simple_logistic_regression : 수치형 변수로부터 이분형 범주형 변수를 예측하는 방정식을 적합합니다.
+    correlation : 두 수치형 변수 간의 상관 관계를 검정합니다.
     
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("simple_linear_regression.csv")
@@ -259,7 +259,7 @@ def simple_linear_regression(data, x, y):
            R-Squared  Adj. R-Squared  F Statistic   p-value   
     Model   0.205519        0.174962      6.72578  0.015401  *
 
-    The p-value < 0.05, so there is a significant relation between the predictor and response variables.
+    p-값이 0.05보다 작으므로 예측 변수와 반응 변수 간에 유의한 관계가 있습니다.
     
     '''
 
@@ -311,32 +311,32 @@ def simple_linear_regression(data, x, y):
 
 def multiple_linear_regression(data, x_numeric, x_categorical, y):
     '''
-    Fit an equation that predicts a numeric variable from other variables.
+    다른 변수로부터 수치형 변수를 예측하는 방정식을 적합합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least one numeric column and several other columns (can be either numeric or categorical).
+        입력 데이터입니다. 하나 이상의 수치형 열과 여러 다른 열(수치형 또는 범주형일 수 있음)을 포함해야 합니다.
     x_numeric : :py:class:`list`
-        The list of predictor variables that are numeric.
+        수치형인 예측 변수의 목록입니다.
     x_categorical : :py:class:`list`
-        The list of predictor variables that are categorical. Maximum 20 groups.
+        범주형인 예측 변수의 목록입니다. 최대 20개 그룹입니다.
     y : :py:class:`str`
-        The response variable. Must be numeric.
+        반응 변수입니다. 수치형이어야 합니다.
     
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The coefficients of the fitted equation, along with the confidence intervals, standard errors, t statistics, and p-values.
+        적합된 방정식의 계수와 신뢰 구간, 표준 오차, t 통계량 및 p-값입니다.
     result : :py:class:`pandas.DataFrame`
-        The R-squared, adjusted R-squared, F statistic, and p-value of the fitted model.
+        적합된 모델의 R-제곱, 수정된 R-제곱, F 통계량 및 p-값입니다.
     
-    See also
+    참고 항목
     --------
-    multiple_logistic_regression : Fit an equation that predicts a categorical variable from other variables.
-    correlation_matrix : Compute the correlation coefficients between every two variables.
+    multiple_logistic_regression : 다른 변수로부터 범주형 변수를 예측하는 방정식을 적합합니다.
+    correlation_matrix : 모든 두 변수 간의 상관 계수를 계산합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("multiple_linear_regression.csv")
@@ -370,7 +370,7 @@ def multiple_linear_regression(data, x_numeric, x_categorical, y):
            R-Squared  Adj. R-Squared  F Statistic   p-value     
     Model   0.279826        0.246068     8.289157  0.000097  ***
 
-    The p-value < 0.001, so there is a significant relation between the predictor and response variables.
+    p-값이 0.001보다 작으므로 예측 변수와 반응 변수 간에 유의한 관계가 있습니다.
     
     '''
 

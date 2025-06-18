@@ -8,11 +8,11 @@ class Example(ttk.Menubutton):
 
     def __init__(self, parent, master, text, width):
         
-        # Initialize
+        # 초기화
         ttk.Menubutton.__init__(self, parent, text=text, width=width)
         self.master = master
 
-        # Variable
+        # 변수
         self.test_type = ["Basic", "t-Test", "ANOVA", "Exact Test", "Chi-Square Test", "Linear Regression", "Logistic Regression", "Nonparametric", "Others"]
         self.test_list = {
             "Basic"               : ["Numeric", "Numeric (Grouped)", "Categorical", "Contingency"] ,
@@ -34,7 +34,7 @@ class Example(ttk.Menubutton):
             "Others"       : ["Heatmap", "FA Plot", "PCA Plot", "LDA Plot"]
         }
 
-        # Setup
+        # 설정
         self.setup()
 
     def setup(self):
@@ -977,11 +977,11 @@ class Manual(ttk.Menubutton):
 
     def __init__(self, parent, master, text, width):
         
-        # Initialize
+        # 초기화
         ttk.Menubutton.__init__(self, parent, text=text, width=width)
         self.master = master
 
-        # Setup
+        # 설정
         self.setup()
 
     def setup(self):
