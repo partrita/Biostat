@@ -6,38 +6,38 @@ from biostats.model.util import _CC, _process, _add_p
 
 def chi_square_test(data, variable_1, variable_2, kind="count"):
     '''
-    Test whether there is an association between two categorical variables.
+    두 범주형 변수 간에 연관성이 있는지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least two categorical columns.
+        입력 데이터입니다. 두 개 이상의 범주형 열을 포함해야 합니다.
     variable_1 : :py:class:`str`
-        The first categorical variable. Maximum 20 groups.
+        첫 번째 범주형 변수입니다. 최대 20개 그룹입니다.
     variable_2 : :py:class:`str`
-        The second categorical variable. Maximum 20 groups. Switching the two variables will not change the result of chi-square test.
+        두 번째 범주형 변수입니다. 두 변수를 바꿔도 카이제곱 검정 결과는 변경되지 않습니다.
     kind : :py:class:`str`
-        The way to summarize the contingency table.
+        분할표를 요약하는 방법입니다.
         
-        * "count" : Count the frequencies of occurance.
-        * "vertical" : Calculate proportions vertically, so that the sum of each column equals 1.
-        * "horizontal" : Calculate proportions horizontally, so that the sum of each row equals 1.
-        * "overall" : Calculate overall proportions, so that the sum of the whole table equals 1.
+        * "count" : 발생 빈도를 계산합니다.
+        * "vertical" : 각 열의 합계가 1이 되도록 세로로 비율을 계산합니다.
+        * "horizontal" : 각 행의 합계가 1이 되도록 가로로 비율을 계산합니다.
+        * "overall" : 전체 테이블의 합계가 1이 되도록 전체 비율을 계산합니다.
 
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The contingency table of the two categorical variables.
+        두 범주형 변수의 분할표입니다.
     result : :py:class:`pandas.DataFrame`
-        The degree of freedom, chi-square statistic, and p-value of the test.
+        검정의 자유도, 카이제곱 통계량 및 p-값입니다.
 
-    See also
+    참고 항목
     --------
-    fisher_exact_test : The exact version of chi-square test.
-    chi_square_test_fit : Test the difference between the observed and expected proportion of a variable.
-    mantel_haenszel_test : Test the association between two categorical variables in stratified data.
+    fisher_exact_test : 카이제곱 검정의 정확한 버전입니다.
+    chi_square_test_fit : 변수의 관찰된 비율과 예상 비율 간의 차이를 검정합니다.
+    mantel_haenszel_test : 계층화된 데이터에서 두 범주형 변수 간의 연관성을 검정합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("chi_square_test.csv")
@@ -70,7 +70,7 @@ def chi_square_test(data, variable_1, variable_2, kind="count"):
             D.F.  Chi Square   p-value   
     Normal     2    7.259386  0.026524  *
 
-    The p-value < 0.05, so there is a significant association between *Genotype* and *Health*. That is, the proportions of *disease* are different between the three *Genotype*.
+    p-값이 0.05보다 작으므로 *Genotype*과 *Health* 간에 유의한 연관성이 있습니다. 즉, 세 *Genotype* 간에 *disease*의 비율이 다릅니다.
 
     '''
     
@@ -174,30 +174,30 @@ def chi_square_test(data, variable_1, variable_2, kind="count"):
 
 def chi_square_test_fit(data, variable, expect):
     '''
-    Test whether the proportion of a categorical variable is different from the expected proportion.
+    범주형 변수의 비율이 예상 비율과 다른지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least one categorical column.
+        입력 데이터입니다. 하나 이상의 범주형 열을 포함해야 합니다.
     variable : :py:class:`str`
-        The categorical variable that we want to calculate the proportion of. Maximum 20 groups.
+        비율을 계산하려는 범주형 변수입니다. 최대 20개 그룹입니다.
     expect : :py:class:`dict`
-        The expected proportions of each group. The sum of the proportions will be automatically normalized to 1.
+        각 그룹의 예상 비율입니다. 비율의 합은 자동으로 1로 정규화됩니다.
 
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The observed counts and proportions of each group, and the expected counts and proportions of each group.
+        각 그룹의 관찰된 개수 및 비율과 예상 개수 및 비율입니다.
     result : :py:class:`pandas.DataFrame`
-        The degree of freedom, chi-square statistic, and p-value of the test.
+        검정의 자유도, 카이제곱 통계량 및 p-값입니다.
 
-    See also
+    참고 항목
     --------
-    binomial_test : The exact version of chi-square test (fit).
-    chi_square_test : Test the association between two categorical variables.
+    binomial_test : 카이제곱 검정(적합도)의 정확한 버전입니다.
+    chi_square_test : 두 범주형 변수 간의 연관성을 검정합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("chi_square_test_fit.csv")
@@ -231,7 +231,7 @@ def chi_square_test_fit(data, variable, expect):
             D.F.  Chi Square   p-value    
     Normal     3   13.593424  0.003514  **
 
-    The p-value < 0.01, so the observed proportions are significantly different from the expected proportions.
+    p-값이 0.01보다 작으므로 관찰된 비율은 예상 비율과 유의하게 다릅니다.
 
     '''
     
@@ -285,32 +285,32 @@ def chi_square_test_fit(data, variable, expect):
 
 def mcnemar_test(data, variable_1, variable_2, pair):
     '''
-    Test whether the proportions of a categorical variable are different in two paired groups.
+    두 쌍을 이룬 그룹에서 범주형 변수의 비율이 다른지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least two categorical columns, and a column specifying the pairs.
+        입력 데이터입니다. 두 개 이상의 범주형 열과 쌍을 지정하는 열을 포함해야 합니다.
     variable_1 : :py:class:`str`
-        The categorical variable that specifies which group the samples belong to. Maximum 20 groups. The most frequently appearing two groups will be chosen automatically.
+        표본이 속한 그룹을 지정하는 범주형 변수입니다. 최대 20개 그룹입니다. 가장 빈번하게 나타나는 두 그룹이 자동으로 선택됩니다.
     variable_2 : :py:class:`str`
-        The categorical variable that we want to calculate proportions of. Maximum 20 groups. The most frequently appearing two groups will be chosen automatically.
+        비율을 계산하려는 범주형 변수입니다. 최대 20개 그룹입니다. 가장 빈번하게 나타나는 두 그룹이 자동으로 선택됩니다.
     pair : :py:class:`str`
-        The variable that specifies the pair ID. Samples in the same pair should have the same ID. Maximum 2000 pairs.
+        쌍 ID를 지정하는 변수입니다. 동일한 쌍의 표본은 동일한 ID를 가져야 합니다. 최대 2000쌍입니다.
 
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The contingency table of the two categorical variables with matched pairs as the unit.
+        일치된 쌍을 단위로 하는 두 범주형 변수의 분할표입니다.
     result : :py:class:`pandas.DataFrame`
-        The degree of freedom, chi-square statistic, and p-value of the test (both normal and corrected).
+        검정의 자유도, 카이제곱 통계량 및 p-값(정규 및 수정 모두)입니다.
 
-    See also
+    참고 항목
     --------
-    mcnemar_exact_test : The exact version of McNemar's test,
-    chi_square_test : Test the association between two categorical variables.
+    mcnemar_exact_test : 맥니마 검정의 정확한 버전입니다.
+    chi_square_test : 두 범주형 변수 간의 연관성을 검정합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("mcnemar_test.csv")
@@ -343,7 +343,7 @@ def mcnemar_test(data, variable_1, variable_2, pair):
     Normal        1   15.076923  0.000103  ***
     Corrected     1   14.019231  0.000181  ***
 
-    The p-value < 0.001, so there is a significant difference between the proportions of *Result* under the two *Treatment*.
+    p-값이 0.001보다 작으므로 두 *Treatment* 하에서 *Result*의 비율 간에 유의한 차이가 있습니다.
 
     '''
 
@@ -410,31 +410,31 @@ def mcnemar_test(data, variable_1, variable_2, pair):
 
 def mantel_haenszel_test(data, variable_1, variable_2, stratum):
     '''
-    Test whether there is an association between two categorical variables in stratified data.
+    계층화된 데이터에서 두 범주형 변수 간에 연관성이 있는지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least three categorical columns.
+        입력 데이터입니다. 세 개 이상의 범주형 열을 포함해야 합니다.
     variable_1 : :py:class:`str`
-        The first categorical variable. Maximum 20 groups.
+        첫 번째 범주형 변수입니다. 최대 20개 그룹입니다.
     variable_2 : :py:class:`str`
-        The second categorical variable. Maximum 20 groups. Switching the two variables will not change the result.
+        두 번째 범주형 변수입니다. 최대 20개 그룹입니다. 두 변수를 바꿔도 결과는 변경되지 않습니다.
     stratum : :py:class:`str`
-        The categorical variable that specifies which stratum the samples belong to. Maximum 30 strata.
+        표본이 속한 계층을 지정하는 범주형 변수입니다. 최대 30개 계층입니다.
 
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The contingency table of the two categorical variables in each stratum.
+        각 계층에서 두 범주형 변수의 분할표입니다.
     result : :py:class:`pandas.DataFrame`
-        The degree of freedom, chi-square statistic, and p-value of the test.
+        검정의 자유도, 카이제곱 통계량 및 p-값입니다.
 
-    See also
+    참고 항목
     --------
-    chi_square_test : Test the association between two categorical variables.
+    chi_square_test : 두 범주형 변수 간의 연관성을 검정합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("mantel_haenszel_test.csv")
@@ -479,7 +479,7 @@ def mantel_haenszel_test(data, variable_1, variable_2, stratum):
             D.F.  Chi Square   p-value     
     Normal     1   12.745723  0.000357  ***
 
-    The p-value < 0.001, so there is a significant association between *Treatment* and *Revascularization* in the stratified data.
+    p-값이 0.001보다 작으므로 계층화된 데이터에서 *Treatment*와 *Revascularization* 간에 유의한 연관성이 있습니다.
 
     '''
 

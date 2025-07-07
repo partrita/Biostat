@@ -1,4 +1,4 @@
-### Reference
+### 참고 문헌
 
 McDonald, J.H. _Handbook of Biological Statistics (3rd ed.)_. Sparky House Publishing, Baltimore, Maryland, 2014.
 

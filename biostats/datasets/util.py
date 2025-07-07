@@ -27,23 +27,23 @@ def _process(data, num=[], cat=[]):
 
 def dataset(name=None):
     '''
-    Load the example datasets of BIOSTATS.
+    BIOSTATS의 예제 데이터셋을 불러옵니다.
 
-    Parameters
+    매개변수
     ----------
     name : :py:class:`str`
-        The name of the dataset.
+        데이터셋의 이름입니다.
 
-    Returns
+    반환값
     -------
     data : :py:class:`pandas.DataFrame`
-        The dataset.
+        데이터셋입니다.
 
-    Notes
+    참고
     -----
-    The names of the example datasets are *function_name.csv*. There are also some famous datasets, such as *penguins.csv*, *iris.csv*, *tips.csv*, *titanic.csv*, and *flights.csv*.
+    예제 데이터셋의 이름은 *function_name.csv* 형식입니다. *penguins.csv*, *iris.csv*, *tips.csv*, *titanic.csv*, *flights.csv*와 같은 유명한 데이터셋도 있습니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("one_way_anova.csv")

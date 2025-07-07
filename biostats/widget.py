@@ -33,7 +33,7 @@ class Tree(ttk.Frame):
 
     def __init__(self, parent, height):
         
-        # Initialize
+        # 초기화
         ttk.Frame.__init__(self, parent)
 
         self.height = height
@@ -43,11 +43,11 @@ class Tree(ttk.Frame):
 
     def setup(self):
 
-        # Configure
+        # 구성
         self.rowconfigure(index=0, weight=1)
         self.columnconfigure(index=0, weight=1)
 
-        # Treeview
+        # 트리뷰
         self.treeview = ttk.Treeview(self, selectmode="none", height=self.height)
         self.treeview.grid(row=0, column=0, sticky="nsew")
 
@@ -64,7 +64,7 @@ class Tree(ttk.Frame):
 
     def show(self, scientific, precision):
 
-        # Clear
+        # 지우기
         for item in self.treeview.get_children():
             self.treeview.delete(item)
         self.treeview.config(column=())
@@ -72,10 +72,10 @@ class Tree(ttk.Frame):
         geometry = self.winfo_toplevel().geometry()
         self.winfo_toplevel().geometry(geometry)
 
-        # Width
+        # 너비
         width = [100]*len(self.data.columns)
 
-        # Columns
+        # 열
         self.treeview.config(columns=self.data.columns.tolist())
         self.treeview.column("#0", anchor="center", minwidth=50, width=50)
 
@@ -89,11 +89,11 @@ class Tree(ttk.Frame):
             self.treeview.column(1, anchor="center", minwidth=100, width=100)
             self.treeview.heading(1, text="", anchor="center")
 
-        # Index
+        # 인덱스
         index = self.data.index.tolist()
         width_id = 50
 
-        # Data
+        # 데이터
         for i in range(len(self.data)):
             idd = str(index[i])
             width_id = max(width_id, len(idd)*7+50)
@@ -104,14 +104,14 @@ class Tree(ttk.Frame):
                     temp = ""
                 elif col_type == "float64":
                     if scientific == 1:
-                        #temp = format(round(self.data.iloc[i][j],precision), '.{}E'.format(precision))
+                        #temp = format(round(self.data.iloc[i][j],precision), '.{}E'.format(precision)) # 반올림 후 지수 표기
                         temp = format(self.data.iloc[i][j], '.{}E'.format(precision))
                     else:
-                        #temp = format(round(self.data.iloc[i][j],precision), '.{}f'.format(precision))
+                        #temp = format(round(self.data.iloc[i][j],precision), '.{}f'.format(precision)) # 반올림 후 소수점 표기
                         temp = format(self.data.iloc[i][j], '.{}f'.format(precision))
                 elif col_type == "Int64":
                     if scientific == 1:
-                        #temp = format(round(self.data.iloc[i][j],precision), '.{}E'.format(precision))
+                        #temp = format(round(self.data.iloc[i][j],precision), '.{}E'.format(precision)) # 반올림 후 지수 표기
                         temp = format(self.data.iloc[i][j], '.{}E'.format(precision))
                     else:
                         temp = str(round(self.data.iloc[i][j]))
@@ -136,11 +136,11 @@ class Table(ttk.Frame):
 
     def __init__(self, parent, master):
         
-        # Initialize
+        # 초기화
         ttk.Frame.__init__(self, parent)
         self.master = master
 
-        # Variable
+        # 변수
         self.row_num = 10
         self.col_num = 3
         self.cell_width = 10
@@ -152,11 +152,11 @@ class Table(ttk.Frame):
 
     def setup(self):
 
-        # Configure
+        # 구성
         self.rowconfigure(index=0, weight=1)
         self.columnconfigure(index=0, weight=1)
 
-        # Border
+        # 테두리
         self.border = ttk.Frame(self, style="Card.TFrame", padding=(2,2))
         self.border.grid(row=0, column=0, sticky="nsew")
         self.border.rowconfigure(index=0, weight=1)
@@ -167,7 +167,7 @@ class Table(ttk.Frame):
         self.scrollbar_x = ttk.Scrollbar(self, orient="horizontal")
         self.scrollbar_x.grid(row=1, column=0, sticky="nsew")
 
-        # Entry
+        # 입력
         self.entry_canvas = tk.Canvas(self.border, highlightthickness=0)
         self.entry_canvas.grid(row=0, column=0, sticky="nsew")
 
@@ -193,7 +193,7 @@ class Table(ttk.Frame):
         self.entry = {}
         self.number = {}
 
-        ## Too Large
+        ## 너무 큼
         self.too_large = ttk.Frame(self, style="Card.TFrame", padding=(2,2))
         self.too_large.grid(row=0, column=0, sticky="nsew")
         self.too_large.rowconfigure(index=0, weight=1)
@@ -328,21 +328,21 @@ class Table(ttk.Frame):
             self.entry_canvas.bind_all('<Shift-4>', lambda e: self.entry_canvas.xview('scroll', -1, 'units'))
             self.entry_canvas.bind_all('<Shift-5>', lambda e: self.entry_canvas.xview('scroll', 1, 'units'))
 
-        # Windows
+        # 윈도우
         if self.sys == "win32":
             self.entry_canvas.bind_all("<MouseWheel>", lambda e: self.entry_canvas.yview('scroll', int(-1*(e.delta/120)), 'units'))
             self.entry_canvas.bind_all("<Shift-MouseWheel>", lambda e: self.entry_canvas.xview('scroll', int(-1*(e.delta/120)), 'units'))
 
     def scroll_off(self):
 
-        # Linux 
+        # 리눅스
         if self.sys == "linux":
             self.entry_canvas.unbind_all('<4>')
             self.entry_canvas.unbind_all('<5>')
             self.entry_canvas.unbind_all('<Shift-4>')
             self.entry_canvas.unbind_all('<Shift-5>')
 
-        # Windows
+        # 윈도우
         if self.sys == "win32":
             self.entry_canvas.unbind_all("<MouseWheel>")
             self.entry_canvas.unbind_all("<Shift-MouseWheel>")
@@ -361,26 +361,26 @@ class Option(ttk.Frame):
 
     def __init__(self, parent, master):
         
-        # Initialize
+        # 초기화
         ttk.Frame.__init__(self, parent)
         self.master = master
 
-        # Variable
+        # 변수
         self.option = {}
         self.now = ""
 
         self.sys = sys.platform
 
-        # Setup
+        # 설정
         self.setup()
 
     def setup(self):
 
-        # Configure
+        # 구성
         self.rowconfigure(index=0, weight=1)
         self.columnconfigure(index=0, weight=1)
 
-        # Canvas
+        # 캔버스
         self.canvas = tk.Canvas(self, highlightthickness=0)
         self.canvas.grid(row=0, column=0, sticky="nsew")
 
@@ -580,10 +580,10 @@ class Option(ttk.Frame):
 
     def spin_one_command(self):
 
-        #val = self.spin_one_var.get()
-        #self.spin_one_item.delete(0, "end")
-        #self.spin_one_item.insert(0, val)
-        #self.option["spin_one"].focus()
+        #val = self.spin_one_var.get() # 값 가져오기
+        #self.spin_one_item.delete(0, "end") # 삭제
+        #self.spin_one_item.insert(0, val) # 삽입
+        #self.option["spin_one"].focus() # 포커스
         self.master.change()
 
     def spin_one_get(self):
@@ -682,14 +682,14 @@ class Option(ttk.Frame):
         if x == 0.0 and y == 1.0:
             return
 
-        # Linux 
+        # 리눅스
         if self.sys == "linux":
             self.canvas.bind_all('<4>', lambda e: self.canvas.xview('scroll', -1, 'units'))
             self.canvas.bind_all('<5>', lambda e: self.canvas.xview('scroll', 1, 'units'))
             self.canvas.bind_all('<Shift-4>', lambda e: self.canvas.xview('scroll', -1, 'units'))
             self.canvas.bind_all('<Shift-5>', lambda e: self.canvas.xview('scroll', 1, 'units'))
 
-        # Windows
+        # 윈도우
         if self.sys == "win32":
             self.canvas.bind_all("<MouseWheel>", lambda e: self.canvas.xview('scroll', int(-1*(e.delta/120)), 'units'))
             self.canvas.bind_all("<Shift-MouseWheel>", lambda e: self.canvas.xview('scroll', int(-1*(e.delta/120)), 'units'))
@@ -697,14 +697,14 @@ class Option(ttk.Frame):
 
     def scroll_off(self):
 
-        # Linux 
+        # 리눅스
         if self.sys == "linux":
             self.canvas.unbind_all('<4>')
             self.canvas.unbind_all('<5>')
             self.canvas.unbind_all('<Shift-4>')
             self.canvas.unbind_all('<Shift-5>')
 
-        # Windows
+        # 윈도우
         if self.sys == "win32":
             self.canvas.unbind_all("<MouseWheel>")
             self.canvas.unbind_all("<Shift-MouseWheel>")

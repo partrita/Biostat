@@ -1,9 +1,9 @@
-**Other**
+**기타**
 ===========
 
 .. currentmodule:: biostats
 
-Dataset
+데이터셋
 -------
 
 .. autosummary::

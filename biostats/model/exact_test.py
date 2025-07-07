@@ -18,23 +18,23 @@ class binom_exact:
 
         self.p_0 = self.multi_nom(self.table)
         self.p = 0
-        #self.cnt = 0
+        #self.cnt = 0 # 카운터
 
         mat = [0] * len(self.table)
         pos = 0
 
         self.dfs(mat, pos)
 
-        #if self.cnt > 1000000:
-        #    return np.NAN
+        #if self.cnt > 1000000: # 카운터가 1,000,000을 초과하면
+        #    return np.NAN # NaN 반환
 
         return self.p
 
     def dfs(self, mat, pos):
 
-        #self.cnt += 1
-        #if self.cnt > 1000000:
-        #    return
+        #self.cnt += 1 # 카운터 증가
+        #if self.cnt > 1000000: # 카운터가 1,000,000을 초과하면
+        #    return # 반환
 
         mat_new = []
         for x in mat:
@@ -69,35 +69,35 @@ class binom_exact:
 
 def binomial_test(data, variable, expect):
     '''
-    Test whether the proportion of a categorical variable is different from the expected proportion.
+    범주형 변수의 비율이 예상 비율과 다른지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least one categorical column. Maximum 500 rows.
+        입력 데이터입니다. 하나 이상의 범주형 열을 포함해야 합니다. 최대 500개 행입니다.
     variable : :py:class:`str`
-        The categorical variable that we want to calculate the proportion of. Maximum 10 groups.
+        비율을 계산하려는 범주형 변수입니다. 최대 10개 그룹입니다.
     expect : :py:class:`dict`
-        The expected proportions of each group. The sum of the proportions will be automatically normalized to 1.
+        각 그룹의 예상 비율입니다. 비율의 합은 자동으로 1로 정규화됩니다.
 
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The observed counts and proportions of each group, and the expected counts and proportions of each group.
+        각 그룹의 관찰된 개수 및 비율과 예상 개수 및 비율입니다.
     result : :py:class:`pandas.DataFrame`
-        The p-value of the test.
+        검정의 p-값입니다.
 
-    See also
+    참고 항목
     --------
-    chi_square_test_fit : The normal approximation version of binomial test.
-    fisher_exact_test : Test the association between two categorical variables.
+    chi_square_test_fit : 이항 검정의 정규 근사 버전입니다.
+    fisher_exact_test : 두 범주형 변수 간의 연관성을 검정합니다.
 
-    Notes
+    참고
     -----
     .. warning::
-        The binomial test calculates the exact p-value by iterating through all the possible distributions, so it may consume lots of time when the size of data is huge. For larger data, :py:func:`chi_square_test_fit` is recommended. 
+        이항 검정은 가능한 모든 분포를 반복하여 정확한 p-값을 계산하므로 데이터 크기가 매우 클 경우 시간이 많이 걸릴 수 있습니다. 더 큰 데이터의 경우 :py:func:`chi_square_test_fit`를 사용하는 것이 좋습니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("binomial_test.csv")
@@ -131,7 +131,7 @@ def binomial_test(data, variable, expect):
             p-value    
     Model  0.002255  **
 
-    The p-value < 0.01, so the observed proportions are significantly different from the expected proportions.
+    p-값이 0.01보다 작으므로 관찰된 비율은 예상 비율과 유의하게 다릅니다.
 
     '''
 
@@ -216,23 +216,23 @@ class fisher_exact:
 
         self.p_0 = self.hyper_geom(self.table)
         self.p = 0
-        #self.cnt = 0
+        #self.cnt = 0 # 카운터
 
         mat = [[0] * len(self.col_sum)] * len(self.row_sum)
         pos = (0, 0)
 
         self.dfs(mat, pos)
 
-        #if self.cnt > 1000000:
-        #    return np.NAN
+        #if self.cnt > 1000000: # 카운터가 1,000,000을 초과하면
+        #    return np.NAN # NaN 반환
 
         return self.p
 
     def dfs(self, mat, pos):
 
-        #self.cnt += 1
-        #if self.cnt > 1000000:
-        #    return
+        #self.cnt += 1 # 카운터 증가
+        #if self.cnt > 1000000: # 카운터가 1,000,000을 초과하면
+        #    return # 반환
         
         (xx, yy) = pos
         (rr, cc) = (len(self.row_sum), len(self.col_sum))
@@ -293,42 +293,42 @@ class fisher_exact:
 
 def fisher_exact_test(data, variable_1, variable_2, kind="count"):
     '''
-    Test whether there is an association between two categorical variables.
+    두 범주형 변수 간에 연관성이 있는지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least two categorical columns.
+        입력 데이터입니다. 두 개 이상의 범주형 열을 포함해야 합니다.
     variable_1 : :py:class:`str`
-        The first categorical variable. Maximum 10 groups.
+        첫 번째 범주형 변수입니다. 최대 10개 그룹입니다.
     variable_2 : :py:class:`str`
-        The second categorical variable. Switching the two variables will not change the result of Fisher exact test. Maximum 10 groups.
+        두 번째 범주형 변수입니다. 두 변수를 바꿔도 피셔 정확 검정 결과는 변경되지 않습니다. 최대 10개 그룹입니다.
     kind : :py:class:`str`
-        The way to summarize the contingency table.
+        분할표를 요약하는 방법입니다.
 
-        * "count" : Count the frequencies of occurance.
-        * "vertical" : Calculate proportions vertically, so that the sum of each column equals 1.
-        * "horizontal" : Calculate proportions horizontally, so that the sum of each row equals 1.
-        * "overall" : Calculate overall proportions, so that the sum of the whole table equals 1.
+        * "count" : 발생 빈도를 계산합니다.
+        * "vertical" : 각 열의 합계가 1이 되도록 세로로 비율을 계산합니다.
+        * "horizontal" : 각 행의 합계가 1이 되도록 가로로 비율을 계산합니다.
+        * "overall" : 전체 테이블의 합계가 1이 되도록 전체 비율을 계산합니다.
 
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The contingency table of the two categorical variables.
+        두 범주형 변수의 분할표입니다.
     result : :py:class:`pandas.DataFrame`
-        The p-value of the test.
+        검정의 p-값입니다.
 
-    See also
+    참고 항목
     --------
-    chi_square_test : The normal approximation version of Fisher exact test.
-    binomial_test : Test the difference between the observed and expected proportion of a variable.
+    chi_square_test : 피셔 정확 검정의 정규 근사 버전입니다.
+    binomial_test : 변수의 관찰된 비율과 예상 비율 간의 차이를 검정합니다.
 
-    Notes
+    참고
     -----
     .. warning::
-        Fisher exact test calculates the exact p-value by iterating through all the possible distributions, so it may consume lots of time when the size of data is huge. For larger data, :py:func:`chi_square_test` is recommended. 
+        피셔 정확 검정은 가능한 모든 분포를 반복하여 정확한 p-값을 계산하므로 데이터 크기가 매우 클 경우 시간이 많이 걸릴 수 있습니다. 더 큰 데이터의 경우 :py:func:`chi_square_test`를 사용하는 것이 좋습니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("fisher_exact_test.csv")
@@ -362,7 +362,7 @@ def fisher_exact_test(data, variable_1, variable_2, kind="count"):
             p-value     
     Model  0.000123  ***
 
-    The p-value < 0.001, so there is a significant association between *Frequency* and *Result*. That is, the proportions of *Damaged* are different between the four *Frequency*.
+    p-값이 0.001보다 작으므로 *Frequency*와 *Result* 간에 유의한 연관성이 있습니다. 즉, 네 가지 *Frequency* 간에 *Damaged*의 비율이 다릅니다.
 
     '''
 
@@ -416,32 +416,32 @@ def fisher_exact_test(data, variable_1, variable_2, kind="count"):
 
 def mcnemar_exact_test(data, variable_1, variable_2, pair):
     '''
-    Test whether the proportions of a categorical variable are different in two paired groups.
+    두 쌍을 이룬 그룹에서 범주형 변수의 비율이 다른지 검정합니다.
 
-    Parameters
+    매개변수
     ----------
     data : :py:class:`pandas.DataFrame`
-        The input data. Must contain at least two categorical columns, and a column specifying the pairs.
+        입력 데이터입니다. 두 개 이상의 범주형 열과 쌍을 지정하는 열을 포함해야 합니다.
     variable_1 : :py:class:`str`
-        The categorical variable that specifies which group the samples belong to. Maximum 10 groups. The most frequently appearing two groups will be chosen automatically.
+        표본이 속한 그룹을 지정하는 범주형 변수입니다. 최대 10개 그룹입니다. 가장 빈번하게 나타나는 두 그룹이 자동으로 선택됩니다.
     variable_2 : :py:class:`str`
-        The categorical variable that we want to calculate proportions of. Maximum 10 groups. The most frequently appearing two groups will be chosen automatically.
+        비율을 계산하려는 범주형 변수입니다. 최대 10개 그룹입니다. 가장 빈번하게 나타나는 두 그룹이 자동으로 선택됩니다.
     pair : :py:class:`str`
-        The variable that specifies the pair ID. Samples in the same pair should have the same ID. Maximum 1000 pairs.
+        쌍 ID를 지정하는 변수입니다. 동일한 쌍의 표본은 동일한 ID를 가져야 합니다. 최대 1000쌍입니다.
 
-    Returns
+    반환값
     -------
     summary : :py:class:`pandas.DataFrame`
-        The contingency table of the two categorical variables with matched pairs as the unit.
+        일치된 쌍을 단위로 하는 두 범주형 변수의 분할표입니다.
     result : :py:class:`pandas.DataFrame`
-        The p-value of the test.
+        검정의 p-값입니다.
 
-    See also
+    참고 항목
     --------
-    mcnemar_test : The normal approximation version of McNemar's test,
-    fisher_exact_test : Test the association between two categorical variables.
+    mcnemar_test : 맥니마 검정의 정규 근사 버전입니다.
+    fisher_exact_test : 두 범주형 변수 간의 연관성을 검정합니다.
 
-    Examples
+    예제
     --------
     >>> import biostats as bs
     >>> data = bs.dataset("mcnemar_exact_test.csv")
@@ -473,7 +473,7 @@ def mcnemar_exact_test(data, variable_1, variable_2, pair):
            p-value      
     Model  0.06543  <NA>
 
-    The p-value > 0.05, so there is no significant difference between the proportions of *Result* under the two *Treatment*.
+    p-값이 0.05보다 크므로 두 *Treatment* 하에서 *Result*의 비율 간에 유의한 차이가 없습니다.
 
     '''
 
